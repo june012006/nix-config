@@ -115,19 +115,17 @@
     },
     "nix-secrets": {
       "locked": {
-        "lastModified": 1753401711,
-        "narHash": "sha256-zVG8AEO/7dcpFVTeAtr5EeCg6zVI/LCP1AU5J1s0yOE=",
-        "ref": "simple",
-        "rev": "f5fa2273c5233c24148fadd3b0acc2c1a84a87d0",
-        "shallow": true,
+        "lastModified": 1768082911,
+        "narHash": "sha256-pagHh+UefxIwDii5jesoaXTBnI9C9FFDPEBhSWe5SSU=",
+        "ref": "refs/heads/simple",
+        "rev": "1d3cf95d543bae3f3650d3a8eb710cefdd1fb301",
+        "revCount": 11,
         "type": "git",
-        "url": "ssh://git@github.com/emergentmind/nix-secrets-reference.git"
+        "url": "ssh://git@github.com/june012006/nix-secrets.git"
       },
       "original": {
-        "ref": "simple",
-        "shallow": true,
         "type": "git",
-        "url": "ssh://git@github.com/emergentmind/nix-secrets-reference.git"
+        "url": "ssh://git@github.com/june012006/nix-secrets.git"
       }
     },
     "nixpkgs": {
