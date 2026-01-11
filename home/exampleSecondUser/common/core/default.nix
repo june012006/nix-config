@@ -29,6 +29,7 @@
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "24.11";
     sessionPath = [ "$HOME/.local/bin" ];
+    backupFileExtension = "backup";
   };
 
   home.packages = builtins.attrValues {

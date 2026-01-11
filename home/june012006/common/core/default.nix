@@ -78,6 +78,8 @@ in
       usbutils
       unzip # zip extraction
       unrar # rar extraction
+      vscode
+      vim
       ;
   };
 
