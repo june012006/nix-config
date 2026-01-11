@@ -31,6 +31,7 @@ in
         "networkmanager"
         "scanner" # for print/scan"
         "lp" # for print/scan"
+        "libvirtd"
       ])
     ];
   };
@@ -46,4 +47,3 @@ in
     openssh.authorizedKeys.keys = config.users.users.${hostSpec.username}.openssh.authorizedKeys.keys; # root's ssh keys are mainly used for remote deployment.
   };
 }
-

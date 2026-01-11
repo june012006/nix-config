@@ -27,6 +27,12 @@ in
     ./nixos.nix
     ./ssh.nix
   ];
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
+    };
+  };
   programs.firefox.profiles.mail = {
     id = 0;
     name = "june012006";

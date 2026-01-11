@@ -60,6 +60,7 @@
       "hosts/common/optional/services/openssh.nix" # allow remote SSH access
       "hosts/common/optional/audio.nix" # pipewire and cli controls
       "hosts/common/optional/kdeplasma.nix" # KDE Plasma desktop
+      "hosts/common/optional/virt-manager.nix" # add virt-manager
     ])
   ];
 
@@ -109,6 +110,22 @@
   hardware.graphics = {
     enable = true;
   };
+  system.activationScripts.libvirt-images-symlink = {
+    deps = [ "binsh" ]; # Ensures basic shell tools are available
+    text = ''
+      # Create parent directory if it doesn't exist
+      mkdir -p /var/lib/libvirt
+
+      # Remove existing directory if it's not a symlink to prevent conflicts
+      if [ -d "/var/lib/libvirt/images" ] && [ ! -L "/var/lib/libvirt/images" ]; then
+        rmdir /var/lib/libvirt/images || echo "Warning: /var/lib/libvirt/images is not empty, symlink creation might fail."
+      fi
+
+      # Create the symlink (forcefully overwrite if needed)
+      ln -sfn /backupDrive/images /var/lib/libvirt/images
+    '';
+  };
+
   # https://wiki.nixos.org/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.11";
 }
