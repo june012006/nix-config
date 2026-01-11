@@ -22,19 +22,19 @@
     #
     # ========== Disk Layout ==========
     #
-#    inputs.disko.nixosModules.disko
+    #    inputs.disko.nixosModules.disko
     # FIXME(starter): modify with the disko spec file you want to use.
-#    (lib.custom.relativeToRoot "hosts/common/disks/btrfs-disk.nix")
+    #    (lib.custom.relativeToRoot "hosts/common/disks/btrfs-disk.nix")
     # FIXME(starter): modify the options below to inform disko of the host's disk path and swap requirements.
     # IMPORTANT: nix-config-starter assumes a single disk per host. If you require more disks, you
     # must modify or create new dikso specs.
-#    {
-#      _module.args = {
-#        disk = "/dev/nvme0n1";
-#        withSwap = true;
-#        swapSize = 16;
-#      };
-#    }
+    #    {
+    #      _module.args = {
+    #        disk = "/dev/nvme0n1";
+    #        withSwap = true;
+    #        swapSize = 16;
+    #      };
+    #    }
 
     (map lib.custom.relativeToRoot [
       #
@@ -48,7 +48,7 @@
       # FIXME(starter): the primary user, defined in `nix-config/hosts/common/users`, is added by default, via
       # `hosts/common/core` above.
       # To create additional users, specify the path to their config file, as shown in the commented line below, and create/modify
-      # the specified file as required. See `nix-config/hosts/common/users/exampleSecondUser` for more info. 
+      # the specified file as required. See `nix-config/hosts/common/users/exampleSecondUser` for more info.
 
       #"hosts/common/users/exampleSecondUser"
 
@@ -59,7 +59,7 @@
       # The following are for example sake only and are not necessarily required.
       "hosts/common/optional/services/openssh.nix" # allow remote SSH access
       "hosts/common/optional/audio.nix" # pipewire and cli controls
-      "hosts/common/optional/xfce.nix" # lightweight x-based window manager
+      "hosts/common/optional/kdeplasma.nix" # KDE Plasma desktop
     ])
   ];
 
@@ -92,15 +92,20 @@
   boot.initrd = {
     systemd.enable = true;
   };
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
+  hardware.nvidia = {
+    open = true;
+    modesetting.enable = true;
+    nvidiaSettings = true;
+    prime = {
+      # sync.enable = true;
+      intelBusId = "PCI:00:02:0";
+      nvidiaBusId = "PCI:01:00:0";
+      # offload = {
+      #   enable = true;
+      #   enableOffloadCmd = true;
+      # };
     };
-    intelBusId = "PCI:00:02.0"
-    nvidiaBusId = "PCI:01:00.0"
-  }
+  };
   hardware.graphics = {
     enable = true;
   };
