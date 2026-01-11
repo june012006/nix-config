@@ -18,7 +18,7 @@
     # ========== Hardware ==========
     #
     ./hardware-configuration.nix
-
+    inputs.hardware.nixosModules.common-gpu-nvidia
     #
     # ========== Disk Layout ==========
     #
