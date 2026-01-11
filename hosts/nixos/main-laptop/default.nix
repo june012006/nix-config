@@ -92,7 +92,15 @@
   boot.initrd = {
     systemd.enable = true;
   };
-
+  hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+    intelBusId = "PCI:00:02.0"
+    nvidiaBusId = "PCI:01:00.0"
+  }
   hardware.graphics = {
     enable = true;
   };
