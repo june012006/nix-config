@@ -19,6 +19,9 @@ in
     validateSopsFiles = false;
 
     secrets = {
+      "keys/ssh/id_main" = {
+        path = "${homeDirectory}/.ssh/id_main";
+      };
     };
   };
 }

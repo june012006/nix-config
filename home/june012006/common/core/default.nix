@@ -27,7 +27,21 @@ in
     ./nixos.nix
     ./ssh.nix
   ];
-
+  programs.firefox.profiles.mail = {
+    id = 0;
+    name = "june012006";
+    isDefault = true;
+    settings = {
+      "signon.rememberSignons" = false; # Disable built-in password manager
+      "browser.compactmode.show" = true;
+      "browser.uidensity" = 1; # enable compact mode
+      "browser.aboutConfig.showWarning" = false;
+      "browser.download.dir" = "${config.home.homeDirectory}/downloads";
+      "browser.tabs.firefox-view" = true; # Sync tabs across devices
+      "ui.systemUsesDarkTheme" = 1; # force dark theme
+      "extensions.pocket.enabled" = false;
+    };
+  };
   inherit hostSpec;
 
   services.ssh-agent.enable = true;
