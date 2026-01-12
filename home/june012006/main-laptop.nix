@@ -18,7 +18,8 @@
     common/optional/desktops
     common/optional/comms
     common/optional/media
-    # common/optional/IDE/code.nix
+    common/optional/IDE/code.nix
+    common/optional/IDE/nvim.nix
     common/optional/sops.nix
   ];
 
