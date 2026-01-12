@@ -61,6 +61,8 @@
       "hosts/common/optional/audio.nix" # pipewire and cli controls
       "hosts/common/optional/kdeplasma.nix" # KDE Plasma desktop
       "hosts/common/optional/virt-manager.nix" # add virt-manager
+      "hosts/common/optional/gaming.nix" # add steam
+      "hosts/common/optional/services/bluetooth.nix" # what it says on the tin
     ])
   ];
 
