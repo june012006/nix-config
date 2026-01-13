@@ -65,6 +65,7 @@
       "hosts/common/optional/services/bluetooth.nix" # what it says on the tin
       "hosts/common/optional/nvtop.nix" # NVidia information
       "hosts/common/optional/onlykey.nix" # Onlykey software
+      "hosts/common/optional/tmux.nix" # TMUX
     ])
   ];
 
