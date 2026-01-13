@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   hardware.xpadneo.enable = true;
-
+  hardware.opengl.driSupport32Bit = true;
   programs = {
     steam = {
       enable = true;

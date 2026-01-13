@@ -63,6 +63,8 @@
       "hosts/common/optional/virt-manager.nix" # add virt-manager
       "hosts/common/optional/gaming.nix" # add steam
       "hosts/common/optional/services/bluetooth.nix" # what it says on the tin
+      "hosts/common/optional/nvtop.nix" # NVidia information
+      "hosts/common/optional/onlykey.nix" # Onlykey software
     ])
   ];
 
