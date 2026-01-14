@@ -66,6 +66,7 @@
       "hosts/common/optional/nvtop.nix" # NVidia information
       "hosts/common/optional/onlykey.nix" # Onlykey software
       "hosts/common/optional/tmux.nix" # TMUX
+      "hosts/common/optional/services/kdeconnect.nix"
     ])
   ];
 
