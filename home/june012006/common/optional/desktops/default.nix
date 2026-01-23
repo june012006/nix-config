@@ -4,7 +4,8 @@
     # Packages with custom configs go here
 
     ########## Utilities ##########
-    ./gtk.nix
+    #./gtk.nix
+    ./plasma.nix
   ];
   home.packages = [
     pkgs.pavucontrol # gui for pulseaudio server and volume controls
