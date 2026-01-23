@@ -8,6 +8,7 @@
 ###############################################################
 
 {
+  pkgs,
   inputs,
   lib,
   ...
@@ -67,6 +68,7 @@
       "hosts/common/optional/onlykey.nix" # Onlykey software
       "hosts/common/optional/tmux.nix" # TMUX
       "hosts/common/optional/services/kdeconnect.nix"
+      "hosts/common/optional/services/asusd.nix"
     ])
   ];
 
@@ -85,7 +87,8 @@
     networkmanager.enable = true;
     enableIPv6 = false;
   };
-
+  #Update to latest kernel.   May need to pin later if issues arise
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
     systemd-boot = {
       enable = true;

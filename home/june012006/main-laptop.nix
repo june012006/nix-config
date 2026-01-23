@@ -21,6 +21,7 @@
     common/optional/IDE/code.nix
     common/optional/IDE/nvim.nix
     common/optional/sops.nix
+    # common/optional/utilities/asusd.nix
   ];
 
 }
