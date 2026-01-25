@@ -152,6 +152,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
     # Secrets management. See ./docs/secretsmgmt.md
     sops-nix = {
       url = "github:mic92/sops-nix";
