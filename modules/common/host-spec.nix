@@ -112,6 +112,11 @@
           default = false;
           description = "Used to indicate a host that wants auto styling like stylix";
         };
+        isAdmin = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+          description = "Used to indicate a host that is used to admin other systems";
+        };
         useNeovimTerminal = lib.mkOption {
           type = lib.types.bool;
           default = false;

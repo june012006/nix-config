@@ -8,7 +8,7 @@
 ###############################################################
 
 {
-  pkgs,
+  # pkgs,
   inputs,
   lib,
   ...
@@ -18,7 +18,8 @@
     #
     # ========== Hardware ==========
     #
-    ./hardware-configuration.nix
+    #./hardware-configuration.nix
+    (lib.custom.scanPaths ./.) # Load all extra host-specific *.nix files
     inputs.hardware.nixosModules.common-gpu-nvidia
     #
     # ========== Disk Layout ==========
@@ -79,46 +80,46 @@
   # FIXME(starter): declare any host-specific hostSpec options. Note that hostSpec options pertaining to
   # more than one host can be declared in `nix-config/hosts/common/core/` see the default.nix file there
   # for examples.
-  hostSpec = {
-    hostName = "main-laptop";
-  };
+  # hostSpec = {
+  #   hostName = "main-laptop";
+  # };
 
   networking = {
     networkmanager.enable = true;
     enableIPv6 = false;
   };
-  #Update to latest kernel.   May need to pin later if issues arise
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      # When using plymouth, initrd can expand by a lot each time, so limit how many we keep around
-      configurationLimit = lib.mkDefault 10;
-    };
-    efi.canTouchEfiVariables = true;
-    timeout = 3;
-  };
+  # #Update to latest kernel.   May need to pin later if issues arise
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.loader = {
+  #   systemd-boot = {
+  #     enable = true;
+  #     # When using plymouth, initrd can expand by a lot each time, so limit how many we keep around
+  #     configurationLimit = lib.mkDefault 10;
+  #   };
+  #   efi.canTouchEfiVariables = true;
+  #   timeout = 3;
+  # };
 
-  boot.initrd = {
-    systemd.enable = true;
-  };
-  hardware.nvidia = {
-    open = true;
-    modesetting.enable = true;
-    nvidiaSettings = true;
-    prime = {
-      # sync.enable = true;
-      intelBusId = "PCI:00:02:0";
-      nvidiaBusId = "PCI:01:00:0";
-      # offload = {
-      #   enable = true;
-      #   enableOffloadCmd = true;
-      # };
-    };
-  };
-  hardware.graphics = {
-    enable = true;
-  };
+  # boot.initrd = {
+  #   systemd.enable = true;
+  # };
+  # hardware.nvidia = {
+  #   open = true;
+  #   modesetting.enable = true;
+  #   nvidiaSettings = true;
+  #   prime = {
+  #     # sync.enable = true;
+  #     intelBusId = "PCI:00:02:0";
+  #     nvidiaBusId = "PCI:01:00:0";
+  #     # offload = {
+  #     #   enable = true;
+  #     #   enableOffloadCmd = true;
+  #     # };
+  #   };
+  # };
+  # hardware.graphics = {
+  #   enable = true;
+  # };
   system.activationScripts.libvirt-images-symlink = {
     deps = [ "binsh" ]; # Ensures basic shell tools are available
     text = ''
