@@ -21,6 +21,7 @@
     #./hardware-configuration.nix
     (lib.custom.scanPaths ./.) # Load all extra host-specific *.nix files
     inputs.hardware.nixosModules.common-gpu-nvidia
+    #inputs.hardware.nixosModules.nvidia
     #
     # ========== Disk Layout ==========
     #
